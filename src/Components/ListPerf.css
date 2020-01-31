@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
+  height: 100vh;
+}
+
+.perf {
+  background-size: 100% !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  height: 22vh;
+  width: 30vh;
+  color: #fff;
+  filter: grayscale(100%);
+}

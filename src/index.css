@@ -5,6 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  background: url(https://cdn.dribbble.com/users/276778/screenshots/6103694/circus_dribbble_thumb_1600x1200_2x.png) 50% 50%;
+  background-size: cover;
 }
 
 code {
