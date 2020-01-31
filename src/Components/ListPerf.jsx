@@ -20,8 +20,28 @@ const ListPerf = () => {
       })
   }, []);
 
-  const addVote = (id) => {
-    let vote = listPerf[id].vote;
+  const addVote = (key, id) => {
+    if (!localStorage.getItem('voted')) {
+      let vote = [...listPerf];
+      vote[key].vote++;
+      setListPerf(vote);
+      localStorage.setItem('voted', true);
+      console.log(id);
+      console.log(vote[key].vote);
+      axios.put(`http://localhost:8080/performance/${id}`, {
+        vote: vote[key].vote
+      })
+      .then((result) => {
+        if (result.data) {
+          console.log(result.data);
+        }
+      })
+      .then((error) => {
+        if (error) {
+          console.log(error);
+        }
+      })
+    }
   };
 
   const compare = (a, b) => {
@@ -48,7 +68,7 @@ const ListPerf = () => {
           <div>
             <h3>{perf.name}</h3>
             <p>{perf.description}</p>
-            <button>Voter pour ce numéro</button>
+            <button onClick={() => addVote(key, perf.id)}>Voter pour ce numéro</button>
             <p>Nombre de votes: {perf.vote}</p>
           </div>
         </div>
